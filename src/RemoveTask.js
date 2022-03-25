@@ -1,5 +1,4 @@
 /* eslint-disable import/no-cycle */
-/* eslint-disable no-console */
 import { checkboxes } from './index.js';
 
 const taskDes = JSON.parse(localStorage.getItem('Taskdescription')) || [];

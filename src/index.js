@@ -1,12 +1,13 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-unused-vars */
-import _ from 'lodash';
+import _, { isEmpty } from 'lodash';
 import './style.css';
 import Addtasks from './AddTask.js';
 import removetasks from './RemoveTask.js';
 
 const tasklist = document.querySelector('.tasklist');
 const taskField = document.querySelector('.Taskfield');
+const errorMsg = document.querySelector('.error');
 const clearBtn = document.querySelector('.btn');
 const taskDes = JSON.parse(localStorage.getItem('Taskdescription')) || [];
 
@@ -35,10 +36,18 @@ displaytask(taskDes);
 
 taskField.addEventListener('keyup', (e) => {
   e.stopImmediatePropagation();
-  if (e.keyCode === 13 || e.keyCode === 16 || e.key === 'Enter') {
+  if (isEmpty(taskDes)) {
     Addtasks(e.target.value);
     e.target.value = '';
     displaytask(taskDes);
+  } else if (e.keyCode === 13 || e.keyCode === 16 || e.keyName === 'Enter') {
+    if (!isEmpty(taskField.value)) {
+      Addtasks(e.target.value);
+      e.target.value = '';
+      displaytask(taskDes);
+    } else {
+      errorMsg.innerHTML = '*please write down the task';
+    }
   }
 });
 

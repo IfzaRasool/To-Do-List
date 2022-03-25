@@ -47,7 +47,7 @@ li {
   padding-left: 2rem;
 }
 
-.Taskfield {
+#Taskfield {
   padding: 1rem;
   width: 38rem;
   margin-left: 2rem;
@@ -80,4 +80,9 @@ label {
   padding: 0.5rem;
   font-size: medium;
   color: rgb(78, 76, 76);
+}
+
+.error {
+  color: red;
+  padding-left: 3rem;
 }

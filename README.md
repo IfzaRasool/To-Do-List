@@ -2,7 +2,7 @@
 
 # To Do List
 
-> To DO List Project: Can Add and Remove and make Marks all complete ypu daily task.
+> To DO List Project: Can Add and Remove and make Marks all complete your daily task.
 
 ## Built With
 
