@@ -1,38 +1,88 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-unused-vars */
 import _ from 'lodash';
 import './style.css';
+import Addtasks from './AddTask.js';
+import removetasks from './RemoveTask.js';
 
 const tasklist = document.querySelector('.tasklist');
+const taskField = document.querySelector('.Taskfield');
+const clearBtn = document.querySelector('.btn');
+const taskDes = JSON.parse(localStorage.getItem('Taskdescription')) || [];
 
-const tasks = [{
-  description: 'Cook food',
-  completed: false,
-  index: 0,
-},
-{
-  description: 'Go for grocery',
-  completed: true,
-  index: 1,
-},
-{
-  description: 'Do some university work',
-  completed: false,
-  index: 0,
-},
-];
+const displaytask = (taskDes) => {
+  tasklist.innerHTML = ' ';
+  if (taskDes) {
+    taskDes.forEach((item, index) => {
+      const li = document.createElement('li');
+      const checkbox = document.createElement('INPUT');
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.id = item.index;
+      checkbox.className = 'checkboxclass';
+      const label1 = document.createElement('INPUT');
+      label1.setAttribute('type', 'text');
+      label1.className = 'labelclass';
+      const text = item.description;
+      item.completed = 'false';
+      label1.value = text;
+      tasklist.appendChild(li);
+      li.appendChild(checkbox);
+      li.appendChild(label1);
+    });
+  }
+};
+displaytask(taskDes);
 
-function displaytask() {
-  tasks.forEach((task) => {
-    const li = document.createElement('li');
-    const checkbox = document.createElement('INPUT');
-    const label1 = document.createElement('LABEL');
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.className = 'checkbox';
-    label1.innerHTML = task.description;
-    tasklist.appendChild(li);
-    li.appendChild(checkbox);
-    li.appendChild(label1);
+taskField.addEventListener('keyup', (e) => {
+  e.stopImmediatePropagation();
+  if (e.keyCode === 13 || e.keyCode === 16 || e.key === 'Enter') {
+    Addtasks(e.target.value);
+    e.target.value = '';
+    displaytask(taskDes);
+  }
+});
+
+export const checkboxes = document.querySelectorAll('.checkboxclass');
+const labels = document.querySelectorAll('.labelclass');
+
+for (let i = 0; i < labels.length; i += 1) {
+  labels[i].addEventListener('keyup', (e) => {
+    e.stopImmediatePropagation();
+    taskDes.forEach((item, index) => {
+      if (index === i) {
+        item.description = labels[i].value;
+        localStorage.setItem('Taskdescription', JSON.stringify(taskDes));
+      }
+    });
   });
 }
 
-displaytask();
+for (let i = 0; i < checkboxes.length; i += 1) {
+  checkboxes[i].addEventListener('click', (e) => {
+    if (checkboxes[i].checked === true) {
+      labels[i].style.textDecoration = 'line-through';
+      taskDes.forEach((item, index) => {
+        if (index === i) {
+          item.completed = 'true';
+          localStorage.setItem('Taskdescription', JSON.stringify(taskDes));
+        }
+      });
+    } else {
+      labels[i].style.textDecoration = 'none';
+      taskDes.forEach((item, index) => {
+        if (index === i) {
+          item.completed = 'false';
+          localStorage.setItem('Taskdescription', JSON.stringify(taskDes));
+        }
+      });
+    }
+  });
+}
+
+clearBtn.addEventListener('click', (e) => {
+  e.stopImmediatePropagation();
+  removetasks(e);
+  displaytask(taskDes);
+});
+
+export default displaytask;
