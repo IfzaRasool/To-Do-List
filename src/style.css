@@ -10,7 +10,7 @@ body {
 }
 
 .main {
-  width: 100%;
+  width: 41rem;
   margin: 10rem;
   justify-content: center;
   border: 2px solid rgb(214, 206, 206);
@@ -37,7 +37,7 @@ li {
   padding: 2rem;
   width: 40rem;
   height: 2rem;
-  color: #888;
+  color: rgb(79, 75, 75);
   background-color: #f1f1f1;
   border: 0;
   margin-top: 1rem;
@@ -47,7 +47,7 @@ li {
   padding-left: 2rem;
 }
 
-.Taskfield {
+#Taskfield {
   padding: 1rem;
   width: 38rem;
   margin-left: 2rem;
@@ -70,7 +70,19 @@ label {
 
 .btn:hover {
   background-color: #888;
-  color: black;
-  font-size: large;
+  color: rgb(73, 70, 70);
+  font-size: medium;
   font-weight: bolder;
+}
+
+.labelclass {
+  border: 0;
+  padding: 0.5rem;
+  font-size: medium;
+  color: rgb(78, 76, 76);
+}
+
+.error {
+  color: red;
+  padding-left: 3rem;
 }
