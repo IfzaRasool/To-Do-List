@@ -16,7 +16,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link] (https://ifzarasool.github.io/To-Do-List/) link will be available once merged
+[Live Demo Link](https://ifzarasool.github.io/To-Do-List/)
 
 ## Getting Started
 
