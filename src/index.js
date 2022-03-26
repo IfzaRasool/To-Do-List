@@ -1,6 +1,7 @@
+/* eslint-disable import/named */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-unused-vars */
-import _, { isEmpty } from 'lodash';
+import _, { isEmpty, remove } from 'lodash';
 import './style.css';
 import Addtasks from './AddTask.js';
 import removetasks from './RemoveTask.js';
@@ -67,7 +68,7 @@ for (let i = 0; i < labels.length; i += 1) {
 }
 
 for (let i = 0; i < checkboxes.length; i += 1) {
-  checkboxes[i].addEventListener('click', (e) => {
+  checkboxes[i].addEventListener('change', (e) => {
     if (checkboxes[i].checked === true) {
       labels[i].style.textDecoration = 'line-through';
       taskDes.forEach((item, index) => {
@@ -88,10 +89,32 @@ for (let i = 0; i < checkboxes.length; i += 1) {
   });
 }
 
+const Refreshpage = (e) => {
+  for (let i = 0; i < checkboxes.length; i += 1) {
+    if (checkboxes[i].checked === true) {
+      labels[i].style.textDecoration = 'line-through';
+      taskDes.forEach((item, index) => {
+        if (index === i) {
+          item.completed = 'true';
+          localStorage.setItem('Taskdescription', JSON.stringify(taskDes));
+        }
+      });
+    } else {
+      labels[i].style.textDecoration = 'none';
+      taskDes.forEach((item, index) => {
+        if (index === i) {
+          item.completed = 'false';
+          localStorage.setItem('Taskdescription', JSON.stringify(taskDes));
+        }
+      });
+    }
+  }
+};
+Refreshpage(taskDes);
 clearBtn.addEventListener('click', (e) => {
   e.stopImmediatePropagation();
-  removetasks(e);
+  removetasks();
   displaytask(taskDes);
 });
 
-export default displaytask;
+export default { displaytask, Refreshpage };
