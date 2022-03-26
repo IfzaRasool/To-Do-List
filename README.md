@@ -2,17 +2,21 @@
 
 # To Do List
 
-> To DO List Project: Can Add and Remove and make Marks all complete your daily task.
+> To DO List Project: Add,Remove and Update and make Marks all complete your daily task.
 
 ## Built With
 
-- html, css, js
+- html, css, js, ES6
 - Install webpack
--Eslint,StyleLint
+- Eslint, StyleLint
+
+## Screenshot Demo
+
+![AddBook Page](./images/demo.png)
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://ifzarasool.github.io/To-Do-List/) link will be available once merged
+[Live Demo Link] (https://ifzarasool.github.io/To-Do-List/) link will be available once merged
 
 ## Getting Started
 
