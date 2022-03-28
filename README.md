@@ -12,7 +12,7 @@
 
 ## Screenshot Demo
 
-![AddBook Page](./images/demo.png)
+![Todolist Page](./images/demo.png)
 
 ## Live Demo (if available)
 
