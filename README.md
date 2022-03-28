@@ -1,22 +1,17 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# To Do List
+# Awesome Books
 
-> To DO List Project: Add,Remove and Update and make Marks all complete your daily task.
+> Book list application
 
 ## Built With
 
-- html, css, js, ES6
-- Install webpack
-- Eslint, StyleLint
-
-## Screenshot Demo
-
-![AddBook Page](./images/demo.png)
+- html, css, js
+- eslint, hint, styleint
 
 ## Live Demo (if available)
 
-[Live Demo Link] (https://ifzarasool.github.io/To-Do-List/) link will be available once merged
+[Live Demo Link](https://ifzarasool.github.io/To-Do-List/)
 
 ## Getting Started
 
@@ -36,13 +31,14 @@ To get a local copy up and running follow these simple example steps.
 
 ### Usage
 
-`run npx build`
+`run index.html`
 
 ## Authors
 
 👤 **Ifza Rasool**
 
 - GitHub: [@IfzaRasool](https://github.com/IfzaRasool)
+
 
 ## 🤝 Contributing
 
