@@ -35,13 +35,8 @@ const displaytask = (taskDes) => {
 };
 displaytask(taskDes);
 
-taskField.addEventListener('keyup', (e) => {
-  e.stopImmediatePropagation();
-  if (isEmpty(taskDes)) {
-    Addtasks(e.target.value);
-    e.target.value = '';
-    displaytask(taskDes);
-  } else if (e.keyCode === 13 || e.keyCode === 16 || e.keyName === 'Enter') {
+taskField.addEventListener('keydown', (e) => {
+  if (e.code === 'Enter') {
     if (!isEmpty(taskField.value)) {
       Addtasks(e.target.value);
       e.target.value = '';
